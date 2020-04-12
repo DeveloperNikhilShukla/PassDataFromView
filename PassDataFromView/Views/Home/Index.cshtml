@@ -1,0 +1,125 @@
+﻿@model PassDataFromView.Models.StudentInformation
+ 
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+
+        @*// Pass Data Using StrongBinding In mVC*@
+        @using (Html.BeginForm("ReciveDataUsingStrongBind", "Home"))
+        {
+            @Html.DisplayFor(x=>x.name)    @Html.EditorFor(x=>x.name)
+            <br />
+
+            @Html.DisplayFor(x => x.Collage)    @Html.EditorFor(x => x.Collage)
+
+            <br />
+
+
+            @Html.DisplayFor(x => x.age)    @Html.EditorFor(x => x.age)
+
+            
+            <br />
+            <input type="submit" value="submit"/ >
+        }
+    </div>
+
+
+
+    <div>
+
+        @*// Pass Data Using paramearte In mVC*@
+        @using (Html.BeginForm("ReciveDataUsingParameaters", "Home"))
+        {
+           <input  type="text" name="name" / >
+            <br />
+
+
+            <input type="text" name="collage" / >
+            <br />
+
+
+
+            <input type="text" name="age" / >
+
+            <br />
+            <input type="submit" value="submit"/ >
+        }
+    </div>
+    
+
+    @*// Pass Data Using PostDataUsingRequest In mVC*@
+    @using (Html.BeginForm("PostDataUsingRequest ", "Home"))
+    {
+        <input type="text" name="name" / >
+        <br />
+
+
+            <input type="text" name="collage" / >
+            <br />
+
+
+
+            <input type="text" name="age" / >
+
+            <br />
+            <input type="submit" value="submit"/ >
+    }
+    </div>
+
+    @*// Pass Data Using postdatausingformcollection In mVC*@
+    @using (Html.BeginForm("postdatausingformcollection","Home"))
+    {
+        <input type="text" name="name" / >
+        <br />
+
+
+        <input type="text" name="collage" / >
+        <br />
+
+
+
+            <input type="text" name="age" / >
+
+            <br />
+            <input type="submit" value="submit"/ >
+    }
+    </div>
+
+
+
+
+    @*// Pass Data Using getmethod In mVC*@
+    @using (Html.BeginForm("postdatausinggetmethd", "Home",FormMethod.Get ))
+    {
+        <input type="text" name="name" / >
+        <br />
+
+
+        <input type="text" name="collage" / >
+        <br />
+
+
+
+        <input type="text" name="age" / >
+
+        <br />
+            <input type="submit" value="submit"/ >
+    }
+    </div>
+
+
+    <h1>
+        @ViewData["myEntry"]
+    </h1>
+</body>
+</html>
